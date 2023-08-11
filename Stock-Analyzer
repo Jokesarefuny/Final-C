@@ -1,0 +1,845 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+using namespace std;
+
+class Client /*This code defines a class client with four private member variables- name, id, address, and dob in turn represents the name, ID, address, and date of birth of a client, respectively. The class also includes four public member functions, setName(), setId(), setAddress(), and setDOB(), which are used to set the values of the private member variables, and four public member functions, getName(), getId(), getAddress(), and getDOB(), which are used to get the values of the private member variables.*/
+{
+private:
+    string name;
+    int id;
+    string address;
+    string dob;
+
+public:
+    Client();
+    Client(string name, int id, string address, string dob);
+
+    void setName(string name);
+    void setId(int id);
+    void setAddress(string address);
+    void setDOB(string dob);
+
+    string getName();
+    int getId();
+    string getAddress();
+    string getDOB();
+};
+
+Client::Client() {}
+Client::Client(string name, int id, string address, string dob)
+{
+    this->name = name;
+    this->id = id;
+    this->address = address;
+    this->dob = dob;
+}
+
+void Client::setName(string name)
+{
+    this->name = name;
+}
+void Client::setId(int id)
+{
+    this->id = id;
+}
+void Client::setAddress(string address)
+{
+    this->address = address;
+}
+void Client::setDOB(string dob)
+{
+    this->dob = dob;
+}
+
+string Client::getName()
+{
+    return name;
+}
+int Client::getId()
+{
+    return id;
+}
+string Client::getAddress()
+{
+    return address;
+}
+string Client::getDOB()
+{
+    return dob;
+}
+
+class StockList /*This is a class called StockList that has four private member variables: stockId, stockName, marketPrice, and qtyPurchased. It has a default constructor StockList() and a constructor that takes four arguments StockList(int stockId, string stockName, float marketPrice, int qtyPurchased). It also has four public member functions to set the values of the private member variables: setStockId, setStockName, setMarketPrice, and setQtyPurchased. And four public member functions to get the values of the private member variables: getStockId, getStockName, getMarketPrice, and getQtyPurchased.*/
+{
+private:
+    int stockId;
+    string stockName;
+    float marketPrice;
+    int qtyPurchased;
+
+public:
+    StockList();
+    StockList(int stockId, string stockName, float marketPrice, int qtyPurchased);
+    void setStockId(int stockId);
+    void setStockName(string stockName);
+    void setMarketPrice(float marketPrice);
+    void setQtyPurchased(int qtyPurchased);
+    int getStockId();
+    string getStockName();
+    float getMarketPrice();
+    int getQtyPurchased();
+};
+
+StockList::StockList()
+{
+    stockId = 0;
+    stockName = "";
+    marketPrice = 0.0;
+    qtyPurchased = 0;
+}
+StockList::StockList(int stockId, string stockName, float marketPrice, int qtyPurchased)
+{
+    this->stockId = stockId;
+    this->stockName = stockName;
+    this->marketPrice = marketPrice;
+    this->qtyPurchased = qtyPurchased;
+}
+void StockList::setStockId(int stockId)
+{
+    this->stockId = stockId;
+}
+void StockList::setStockName(string stockName)
+{
+    this->stockName = stockName;
+}
+void StockList::setMarketPrice(float marketPrice)
+{
+    this->marketPrice = marketPrice;
+}
+void StockList::setQtyPurchased(int qtyPurchased)
+{
+    this->qtyPurchased = qtyPurchased;
+}
+int StockList::getStockId()
+{
+    return stockId;
+}
+string StockList::getStockName()
+{
+    return stockName;
+}
+float StockList::getMarketPrice()
+{
+    return marketPrice;
+}
+int StockList::getQtyPurchased()
+{
+    return qtyPurchased;
+}
+
+class PurchaseTable
+{
+
+private:
+    int stockId;
+    string stockName;
+    double marketPrice;
+    int qtyPurchased = 0;
+
+public:
+    PurchaseTable();
+    PurchaseTable(int stockId, string stockName, double marketPrice, int qtyPurchased);
+
+    int getStockId();
+    string getStockName();
+    double getMarketPrice();
+    int getQtyPurchased();
+
+    void setStockId(int stockId);
+    void setStockName(string stockName);
+    void setMarketPrice(double marketPrice);
+    void setQtyPurchased(int qtyPurchased);
+};
+PurchaseTable::PurchaseTable() {}
+PurchaseTable::PurchaseTable(int stockId, string stockName, double marketPrice, int qtyPurchased)
+{
+    this->stockId = stockId;
+    this->stockName = stockName;
+    this->marketPrice = marketPrice;
+    this->qtyPurchased = qtyPurchased;
+}
+
+int PurchaseTable::getStockId()
+{
+    return stockId;
+}
+string PurchaseTable::getStockName()
+{
+    return stockName;
+}
+double PurchaseTable::getMarketPrice()
+{
+    return marketPrice;
+}
+int PurchaseTable::getQtyPurchased()
+{
+    return qtyPurchased;
+}
+
+void PurchaseTable::setStockId(int stockId)
+{
+    this->stockId = stockId;
+}
+void PurchaseTable::setStockName(string stockName)
+{
+    this->stockName = stockName;
+}
+void PurchaseTable::setMarketPrice(double marketPrice)
+{
+    this->marketPrice = marketPrice;
+}
+void PurchaseTable::setQtyPurchased(int qtyPurchased)
+{
+    this->qtyPurchased = qtyPurchased;
+}
+
+class StockSold
+{
+
+private:
+    int stockId;
+    string stockName;
+    float marketPrice;
+    int qtySold = 0;
+
+public:
+    StockSold();
+    StockSold(int stockId, string stockName, float marketPrice, int qtyPurchased);
+
+    void setStockId(int stockId);
+    void setStockName(string stockName);
+    void setMarketPrice(float marketPrice);
+    void setQtySold(int qtyPurchased);
+
+    int getStockId();
+    string getStockName();
+    float getMarketPrice();
+    int getQtySold();
+};
+
+StockSold::StockSold() {}
+StockSold::StockSold(int stockId, string stockName, float marketPrice, int qtySold)
+{
+    this->stockId = stockId;
+    this->stockName = stockName;
+    this->marketPrice = marketPrice;
+    this->qtySold = qtySold;
+}
+
+void StockSold::setStockId(int stockId)
+{
+    this->stockId = stockId;
+}
+void StockSold::setStockName(string stockName)
+{
+    this->stockName = stockName;
+}
+void StockSold::setMarketPrice(float marketPrice)
+{
+    this->marketPrice = marketPrice;
+}
+void StockSold::setQtySold(int qtySold)
+{
+    this->qtySold = qtySold;
+}
+
+int StockSold::getStockId()
+{
+    return stockId;
+}
+string StockSold::getStockName()
+{
+    return stockName;
+}
+float StockSold::getMarketPrice()
+{
+    return marketPrice;
+}
+int StockSold::getQtySold()
+{
+    return qtySold;
+}
+
+class StockNode
+{
+private:
+    int clientId;
+    Client clientData;
+    StockList stockData;
+    StockSold stockSold;
+    PurchaseTable stockPurchased;
+    StockNode *next;
+
+public:
+    StockNode();
+    StockNode(int clientId, Client clientData, StockList stockData, StockSold stockSold, PurchaseTable stockPurchased);
+
+    void setClientId(int clientId);
+    void setClientData(Client clientData);
+    void setStockData(StockList stockData);
+    void setStockSold(StockSold stockSold);
+    void setStockPurchased(PurchaseTable stockPurchased);
+    void setNext(StockNode *next);
+    int getClientId();
+
+    Client getClientData();
+    StockList getStockData();
+    StockSold getStockSold();
+    PurchaseTable getStockPurchased();
+    StockNode *getNext();
+};
+
+StockNode::StockNode()
+{
+    clientId = 0;
+    next = nullptr;
+}
+StockNode::StockNode(int clientId, Client clientData, StockList stockData, StockSold stockSold, PurchaseTable stockPurchased)
+{
+    this->clientId = clientId;
+    this->clientData = clientData;
+    this->stockData = stockData;
+    this->stockSold = stockSold;
+    this->stockPurchased = stockPurchased;
+    this->next = nullptr;
+}
+
+void StockNode::setClientId(int clientId)
+{
+    this->clientId = clientId;
+}
+void StockNode::setClientData(Client clientData)
+{
+    this->clientData = clientData;
+}
+void StockNode::setStockData(StockList stockData)
+{
+    this->stockData = stockData;
+}
+void StockNode::setStockSold(StockSold stockSold)
+{
+    this->stockSold = stockSold;
+}
+void StockNode::setStockPurchased(PurchaseTable stockPurchased)
+{
+    this->stockPurchased = stockPurchased;
+}
+void StockNode::setNext(StockNode *next)
+{
+    this->next = next;
+}
+
+int StockNode::getClientId()
+{
+    return clientId;
+}
+Client StockNode::getClientData()
+{
+    return clientData;
+}
+StockList StockNode::getStockData()
+{
+    return stockData;
+}
+StockSold StockNode::getStockSold()
+{
+    return stockSold;
+}
+PurchaseTable StockNode::getStockPurchased()
+{
+    return stockPurchased;
+}
+StockNode *StockNode::getNext()
+{
+    return next;
+}
+
+class DeletedStockLinkedList
+{ // need to fix this
+private:
+    struct Node
+    {
+        int clientId;
+        Client client;
+        StockList stock;
+        StockSold sold;
+        PurchaseTable purchase;
+        Node *next;
+        Node(int clientId, Client clientData, StockList stockData, StockSold stockSold, PurchaseTable stockPurchased)
+        {
+            this->clientId = clientId;
+            this->client = clientData;
+            this->stock = stockData;
+            this->sold = stockSold;
+            this->purchase = stockPurchased;
+            next = NULL;
+        }
+    };
+    Node *head;
+    int count;
+
+public:
+    DeletedStockLinkedList();
+    ~DeletedStockLinkedList();
+
+    void addClient(int clientId, Client client, StockList stock, StockSold sold, PurchaseTable purchase);
+    void deleteClient(int id);
+    void updateClientData(int id, Client client, StockList stock, StockSold sold, PurchaseTable purchase);
+    void viewDeletedList();
+    int getCount();
+};
+DeletedStockLinkedList::DeletedStockLinkedList()
+{
+    head = nullptr;
+    count = 0;
+}
+DeletedStockLinkedList::~DeletedStockLinkedList()
+{
+    Node *temp = head;
+    while (temp)
+    {
+        head = temp->next;
+        delete temp;
+        temp = head;
+    }
+}
+
+void DeletedStockLinkedList::addClient(int clientId, Client client, StockList stock, StockSold sold, PurchaseTable purchase)
+{
+    Node *newNode = new Node(clientId, client, stock, sold, purchase);
+    newNode->clientId = clientId;
+    newNode->client = client;
+    newNode->stock = stock;
+    newNode->sold = sold;
+    newNode->purchase = purchase;
+    newNode->next = head;
+    head = newNode;
+    count++;
+}
+void DeletedStockLinkedList::deleteClient(int id)
+{
+    if (!head)
+        return;
+
+    Node *temp = head;
+    Node *prev = nullptr;
+
+    if (head->clientId == id)
+    {
+        head = temp->next;
+        delete temp;
+        count--;
+        return;
+    }
+
+    while (temp != nullptr && temp->clientId != id)
+    {
+        prev = temp;
+        temp = temp->next;
+    }
+
+    if (temp == nullptr)
+        return;
+
+    prev->next = temp->next;
+    delete temp;
+    count--;
+}
+
+void DeletedStockLinkedList::updateClientData(int clientId, Client client, StockList stock, StockSold sold, PurchaseTable purchase)
+{
+    Node *temp = head;
+    while (temp != nullptr)
+    {
+        if (temp->clientId == clientId)
+        {
+            temp->client = client;
+            temp->stock = stock;
+            temp->sold = sold;
+            temp->purchase = purchase;
+            break;
+        }
+        temp = temp->next;
+    }
+}
+int DeletedStockLinkedList::getCount()
+{
+    return count;
+}
+
+class StockLinkedList
+{
+
+private:
+    StockNode *head;
+    int clientIdCounter; // used to generate unique client ids
+
+public:
+    StockLinkedList();
+    void addClient(int id, Client clientData, StockList stockData, StockSold stockSold, PurchaseTable stockPurchased);
+    void stockSold(int id, Client clientData, StockList stockData, StockSold stockSold, PurchaseTable stockPurchased);
+    void stockPurchase(int id, Client clientData, StockList stockData, StockSold stockSold, PurchaseTable stockPurchased);
+    void deleteClient(int clientId);
+    void stockData();
+    void updateClientData(int clientId, Client newClientData, StockList newStockData, StockSold newStockSold, PurchaseTable newStockPurchased);
+    void viewPortfolio(int clientId);
+    StockNode *searchClient(int clientId);
+};
+
+StockLinkedList::StockLinkedList()
+{
+    head = nullptr;
+    clientIdCounter = 0;
+}
+
+void StockLinkedList::addClient(int id, Client clientData, StockList stockData, StockSold stockSold, PurchaseTable stockPurchased)
+{
+    StockNode *newNode = new StockNode(id, clientData, stockData, stockSold, stockPurchased);
+    newNode->setNext(head);
+    head = newNode;
+    clientIdCounter++;
+    cout << "Client Account successfully Created.." << endl;
+}
+
+void StockLinkedList::stockPurchase(int clientId, Client clientData, StockList stockData, StockSold stockSold, PurchaseTable stockPurchased)
+{
+    StockNode *current = head;
+
+    while (current != nullptr)
+    {
+        if (current->getClientId() == clientId)
+        {
+            StockNode *newNode = new StockNode(clientId, clientData, stockData, stockSold, stockPurchased);
+            newNode->setNext(head);
+            head = newNode;
+            current->setStockSold(stockSold);
+            cout << "Stock successfully Purchased.." << endl;
+            break;
+        }
+        else
+        {
+            cout << "Client not found!" << endl;
+        }
+        current = current->getNext();
+    }
+}
+
+void StockLinkedList::stockSold(int clientId, Client clientData, StockList stockData, StockSold stockSold, PurchaseTable stockPurchased)
+{
+    StockNode *current = head;
+
+    // if (current == nullptr) {
+    //     cout << "Client not found!" << endl;
+    // }
+
+    while (current != nullptr)
+    {
+        if (current->getClientId() == clientId)
+        {
+            StockNode *newNode = new StockNode(clientId, clientData, stockData, stockSold, stockPurchased);
+            newNode->setNext(head);
+            head = newNode;
+            current->setStockSold(stockSold);
+            cout << "Stock successfully Sold.." << endl;
+            break;
+        }
+        else
+        {
+            cout << "Client not found!" << endl;
+        }
+        current = current->getNext();
+    }
+}
+
+void StockLinkedList::deleteClient(int clientId)
+{
+    StockNode *current = head;
+    StockNode *previous = nullptr;
+    DeletedStockLinkedList deletedList;
+
+    deletedList.addClient(current->getClientId(), current->getClientData(), current->getStockData(), current->getStockSold(), current->getStockPurchased());
+
+    if (current == nullptr)
+    {
+        cout << "Client not found!" << endl;
+    }
+    while (current != nullptr)
+    {
+        if (current->getClientId() == clientId)
+        {
+            // deletedList.addDeletedClient(current->getClientId(), current->getClientData(), current->getStockData(), current->getStockSold(), current->getStockPurchased());
+            if (previous == nullptr)
+            {
+                head = current->getNext();
+            }
+            else
+            {
+                previous->setNext(current->getNext());
+            }
+            delete current;
+            break;
+        }
+        previous = current;
+        current = current->getNext();
+        cout << "client deleted" << endl;
+    }
+}
+
+void StockLinkedList::updateClientData(int clientId, Client newClientData, StockList newStockData, StockSold newStockSold, PurchaseTable newStockPurchased)
+{
+    StockNode *current = head;
+
+    if (current == nullptr)
+    {
+        cout << "Client not found!" << endl;
+    }
+    while (current != nullptr)
+    {
+        if (current->getClientId() == clientId)
+        {
+            current->setClientData(newClientData);
+            current->setStockData(newStockData);
+            current->setStockSold(newStockSold);
+            current->setStockPurchased(newStockPurchased);
+            break;
+        }
+        current = current->getNext();
+    }
+}
+
+void StockLinkedList::stockData()
+{
+    StockNode *current = head;
+
+    if (current == NULL)
+    {
+        cout << "Client not found" << endl;
+    }
+
+    while (current != NULL)
+    {
+        cout << "Stock ID: " << current->getStockData().getStockId() << endl;
+        cout << "Stock Name: " << current->getStockData().getStockName() << endl;
+        cout << "Stock Market Price: " << current->getStockData().getMarketPrice() << endl;
+        cout << "Stock Quantity Purchased: " << current->getStockData().getQtyPurchased() << endl;
+        break;
+    }
+}
+
+void StockLinkedList::viewPortfolio(int clientId)
+{
+    StockNode *current = head;
+
+    if (current == NULL)
+    {
+        cout << "Client not found" << endl;
+    }
+
+    while (current != NULL)
+    {
+        if (current->getClientId() == clientId)
+        {
+            cout << "Client name: " << current->getClientData().getName() << endl;
+            cout << "Client address: " << current->getClientData().getAddress() << endl;
+            cout << "Client date of birth: " << current->getClientData().getDOB() << endl;
+            cout << "Stock ID: " << current->getStockData().getStockId() << endl;
+            cout << "Stock name: " << current->getStockData().getStockName() << endl;
+            cout << "Stock market price: " << current->getStockData().getMarketPrice() << endl;
+            cout << "Stock quantity purchased: " << current->getStockData().getQtyPurchased() << endl;
+            cout << "Stock quantity sold: " << current->getStockSold().getQtySold() << endl;
+            // cout << "Stock purchase date: " << current->getStockPurchased().getPurchasedDate() << endl;
+            break;
+        }
+        current = current->getNext();
+    }
+}
+
+StockNode *StockLinkedList::searchClient(int clientId)
+{
+    StockNode *current = head;
+    while (current != nullptr)
+    {
+        if (current->getClientId() == clientId)
+        {
+            return current;
+        }
+        current = current->getNext();
+    }
+    return nullptr;
+}
+
+class UserInput
+{
+    StockLinkedList stockList;
+    int choice;
+    int clientId;
+    string name;
+    string address;
+    string dob;
+    int stockId;
+    string stockName;
+    double marketPrice;
+    int qtyPurchased;
+    int qtySold;
+    int id;
+
+public:
+    void newClient();
+    void soldStock();
+    void purchaseStock();
+    void deleteData();
+    void updateData();
+    void clientProfile();
+    void stockData();
+};
+
+void UserInput::newClient()
+{
+    ofstream file("client_data.txt", ios::app);
+    cout << "Enter client name: ";
+    cin >> name;
+    cout << "Enter the id: ";
+    cin >> id;
+    cout << "Enter client address: ";
+    cin >> address;
+    cout << "Enter client date of birth: ";
+    cin >> dob;
+    cout << " User Account created.." << endl;
+    cout << "------------------------" << endl;
+    file << "Client Name: " << name << ',' << "Client id: " << id << ',' << "Client address: " << address << ',' << "Client date_of_birth: " << dob << '\n';
+    file.close();
+    stockList.addClient(id, Client(name, id, address, dob), StockList(stockId, stockName, marketPrice, qtyPurchased), StockSold(stockId, stockName, marketPrice, qtyPurchased), PurchaseTable(stockId, stockName, marketPrice, qtySold));
+}
+
+void UserInput::soldStock()
+{
+    ofstream file("Sold_Stock_data.txt", ios::app);
+    cout << "Enter the Client id: ";
+    cin >> clientId;
+    cout << "Enter stock id: ";
+    cin >> stockId;
+    cout << "Enter stock name: ";
+    cin >> stockName;
+    cout << "Enter market price: ";
+    cin >> marketPrice;
+    cout << "Enter quantity Sold: ";
+    cin >> qtySold;
+    file << "Client Name: " << name << ',' << "Client id: " << id << ',' << "Client address: " << address << ',' << "Client date_of_birth: " << dob << ',' << "Stock ID: " << stockId << ',' << "Stock Name: " << stockName << ',' << "Market Price: " << marketPrice << ',' << "Quantity Purchased: " << qtyPurchased << ',' << "Quantity sold: " << qtySold << '\n';
+    file.close();
+    stockList.stockSold(clientId, Client(name, id, address, dob), StockList(stockId, stockName, marketPrice, qtyPurchased), StockSold(stockId, stockName, marketPrice, qtySold), PurchaseTable(stockId, stockName, marketPrice, qtyPurchased));
+}
+
+void UserInput::purchaseStock()
+{
+    ofstream file("Purchase_Stock_data.txt", ios::app);
+
+    cout << "Enter the Client id: ";
+    cin >> clientId;
+    cout << "Enter stock id: ";
+    cin >> stockId;
+    cout << "Enter stock name: ";
+    cin >> stockName;
+    cout << "Enter market price: ";
+    cin >> marketPrice;
+    cout << "Enter quantity Sold: ";
+    cin >> qtyPurchased;
+    file << "Client Name: " << name << ',' << "Client id: " << id << ',' << "Client address: " << address << ',' << "Client date_of_birth: " << dob << ',' << "Stock ID: " << stockId << ',' << "Stock Name: " << stockName << ',' << "Market Price: " << marketPrice << ',' << "Quantity Purchased: " << qtyPurchased << ',' << "Quantity sold: " << qtySold << '\n';
+    file.close();
+    stockList.stockPurchase(clientId, Client(name, id, address, dob), StockList(stockId, stockName, marketPrice, qtyPurchased), StockSold(stockId, stockName, marketPrice, qtySold), PurchaseTable(stockId, stockName, marketPrice, qtyPurchased));
+}
+
+void UserInput::deleteData()
+{
+    cout << "Enter the client id of the client you want to delete: ";
+    cin >> clientId;
+    stockList.deleteClient(clientId);
+}
+
+void UserInput::updateData()
+{
+    cout << "Enter the client id of the client whose data you want to update: ";
+    cin >> clientId;
+    cout << "Enter new client name: ";
+    cin >> name;
+    cout << "Enter new client address: ";
+    cin >> address;
+    cout << "Enter new client date of birth: ";
+    cin >> dob;
+    stockList.updateClientData(clientId, Client(name, id, address, dob), StockList(stockId, stockName, marketPrice, qtyPurchased), StockSold(stockId, stockName, marketPrice, qtyPurchased), PurchaseTable(stockId, stockName, marketPrice, qtySold));
+}
+
+void UserInput::clientProfile()
+{
+    cout << "Enter the client id of the client whose portfolio you want to view: ";
+    cin >> clientId;
+    stockList.viewPortfolio(clientId);
+}
+
+void UserInput::stockData()
+{
+    stockList.stockData();
+}
+
+int main()
+{
+    UserInput input;
+    int choice;
+
+    while (true)
+    {
+        cout << "=================================" << endl;
+        cout << "1. Add a new client" << endl; // stockList.addClient
+        cout << "2. add a purchase stock" << endl;
+        cout << "3. add a sold stock" << endl;
+        cout << "4. Delete a client" << endl;           // stockList.deleteClient
+        cout << "5. Update a client's data" << endl;    // stockList.updateClientData
+        cout << "6. View a client's portfolio" << endl; // stockList.viewPortfolio
+        cout << "7. Stock Data" << endl;
+        cout << "8. Exit" << endl;
+        cout << "== == == == == == == == == == == == " << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+        cout << "===================================" << endl;
+
+        switch (choice)
+        {
+        case 1:
+            input.newClient();
+            break;
+        case 2:
+            input.purchaseStock();
+            break;
+        case 3:
+            input.soldStock();
+            break;
+        case 4:
+            input.deleteData();
+            break;
+        case 5:
+            input.updateData();
+            break;
+        case 6:
+            input.clientProfile();
+            break;
+        case 7:
+            input.stockData();
+            break;
+        case 8:
+            cout << "Quiting..." << endl;
+            return 0;
+        default:
+            cout << "Invalid choice" << endl;
+            break;
+        }
+    }
+}
